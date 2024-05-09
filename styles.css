@@ -1,0 +1,115 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+:root {
+  --light-pink: hsl(275, 100%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+  --bright-pink: hsl(275, 100%, 67%);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  font-family: sans-serif;
+  line-height: 1.4;
+  padding-inline: 1rem;
+  color: var(--grayish-purple);
+
+  background-image: url(/assets/images/background-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+  background-position: top center;
+  background-color: var(--light-pink);
+}
+
+@media (max-width: 24em) {
+  body {
+    background-image: url(/assets/images/background-pattern-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-position: top center;
+  }
+}
+
+.faq-wrapper {
+  background: var(--white);
+  width: min(100%, 37rem);
+  padding: 2rem 2rem 1rem 2rem;
+  border-radius: 1rem;
+  margin: 0 auto;
+}
+
+.faq-header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--dark-purple);
+  margin: 1rem 0 2rem 4rem;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.faq-header::before {
+  content: '';
+  position: absolute;
+  background: url(/assets/images/icon-star.svg);
+  width: 40px;
+  height: 41px;
+  left: -4rem;
+}
+
+.faq-title {
+  color: var(--dark-purple);
+  font-weight: bold;
+  padding: 1rem 0;
+  list-style: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.faq-title::after {
+  content: '';
+  background: url(/assets/images/icon-plus.svg);
+  width: 30px;
+  height: 31px;
+  top: 0;
+  right: 0;
+}
+
+details[open] .faq-title::after {
+  background: url(/assets/images/icon-minus.svg);
+}
+
+details[open] .faq-title {
+  color: var(--bright-pink);
+}
+
+details p {
+  padding: 0 0 1rem 0;
+}
+
+details:last-child {
+  padding-bottom: 0;
+}
+
+details:not(:last-child) {
+  border-bottom: 1px solid var(--light-pink);
+}
